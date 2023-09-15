@@ -51,9 +51,14 @@ Ein GUI um Hausaufgaben und Prüfungen, in einer Datenbank zu speichern und abzu
 | 2.A  |29.09.2023|Pascal Oestrich|Das Programm kann Prüfungen einschreiben.| 30' |
 | 3.A  |27.10.2023|Timo Goedertier|Das Programm speichert Eingaben in Datenbanken.| 30' |
 | 4.A  |27.10.2023|Timo Goedertier|Das Programm hat eine Liste mit allen Eingaben| 15' |
-| 5.A  |03.11.2023|Timo Goedertier|Der User kann die Liste bearbeiten.| 120' |
-| 6.A  |03.11.2023|Pascal Oestrich|Alle GUIs sehen gut aus.| 30' |
-| 7.A  |03.11.2023|Timo Goedertier|Eingaben können archiviert werden.| 180' |
+| 5.A  |03.11.2023|Timo Goedertier|Die Liste hat ein 'bearbeiten' Modus.| 30' |
+| 5.B  |03.11.2023|Timo Goedertier|Der User kann im 'bearbeiten' Mdus Eingaben Löschen.| 15' |
+| 5.C  |03.11.2023|Timo Goedertier|Der User kann im 'bearbeiten' Mdus Eingaben verändern.| 30' |
+| 6.A  |03.11.2023|Pascal Oestrich|Das 'Main' GUI sieht gut aus.| 15' |
+| 6.B  |03.11.2023|Pascal Oestrich|Das 'Liste' GUI sieht gut aus.| 15' |
+| 6.C  |03.11.2023|Pascal Oestrich|Der 'bearbeiten' Modus sieht gut aus.| 20' |
+| 7.A  |03.11.2023|Timo Goedertier|Eingaben haben ein Böxchen, welches man anclicken kann.| 60' |
+| 7.B  |03.11.2023|Timo Goedertier|Eingaben können durch das clicken der Böxchen archiviert werden.| 120' |
 | 8.A  |03.11.2023|Pascal Oestrich/Timo Goedertier|Das Programm wird mit WPF gemacht.|
 
 Total: 
