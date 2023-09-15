@@ -41,7 +41,8 @@ Ein GUI um Hausaufgaben und Prüfungen, in einer Datenbank zu speichern und abzu
 
 ### 1.4 Diagramme
 
-✍️ Hier können Sie PAPs, Use Case- und Gantt-Diagramme oder Ähnliches einfügen.
+![image](https://github.com/timog06/LA_ILA2_1301/assets/110891995/73af5bb4-1c30-4347-8533-a89e5238a9ce)
+
 
 ## 2 Planen
 
