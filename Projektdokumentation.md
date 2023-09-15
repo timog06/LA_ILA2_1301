@@ -4,7 +4,8 @@
 
 | Datum | Version | Zusammenfassung                                              |
 | ----- | ------- | ------------------------------------------------------------ |
-|15.09.2023| 0.0.1 | Das Projekt wurde in Visual Studio erstellt.                 |
+|15.09.2023| 0.0.1 | Das Projekt wurde in Visual Studio erstellt.                |
+|15.09.2023| 0.0.2 | Das Programm hat die Eingabe Felder. (nicht funktionierend) |
 |       | ...     |                                                              |
 |       | 1.0.0   |                                                              |
 
