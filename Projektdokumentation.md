@@ -22,20 +22,20 @@ Ein GUI um Hausaufgaben und Prüfungen, in einer Datenbank zu speichern und abzu
 | 2    |Muss|Funktionalität| Als ein User möchte ich Prüfungen einschreiben können.|
 | 3    |Muss|Funktionalität| Als ein Developer möchte ich, dass die Daten in einer SQL-Datenbank gespeichert werden.|
 | 4    |Muss|Funktionalität| Als ein User möchte ich eine Liste haben, die mir alle Hausaufgaben und Prfüungen anzeigt.|
-| 5    |Kann|Rand| Als ein User möchte ich die Liste/Einträge bearbeiten können.|
+| 5    |Kann|Rand          | Als ein User möchte ich die Liste/Einträge bearbeiten können.|
 | 6    |Muss|Qualität      | Als ein User möchte ich, dass das UI schön aussieht.|
 | 7    |Muss|Rand          | Als ein User möchte ich, dass abgeschlossene Hausaufgaben/Prüfungen archiviert werden können.|
-
-✍️ Jede User Story hat eine ganzzahlige Nummer (1, 2, 3 etc.), eine Verbindlichkeit (Muss oder Kann?), und einen Typ (Funktional, Qualität, Rand). Die User Story selber hat folgende Form: *Als ein 🤷‍♂️ möchte ich 🤷‍♂️, damit 🤷‍♂️*.
 
 ### 1.3 Testfälle
 
 | TC-№ | Ausgangslage | Eingabe | Erwartete Ausgabe |
 | ---- | ------------ | ------- | ----------------- |
-| 1.1  |              |         |                   |
-| ...  |              |         |                   |
-
-✍️ Die Nummer hat das Format `N.m`, wobei `N` die Nummer der User Story ist, die der Testfall abdeckt, und `m` von `1` an nach oben gezählt. Beispiel: Der dritte Testfall, der die zweite User Story abdeckt, hat also die Nummer `2.3`.
+| 1.1  |Program wurde gestartet|Nach dem eintragen von Daten wird der [Hausaufgaben einschreiben] gedrückt.|Die Daten werden für Hausaufgaben gespeichert.|
+| 2.1  |Program wurde gestartet|Nach dem eintragen von Daten wird der [Prüfungen einschreiben] gedrückt.|Die Daten werden für Prüfungen gespeichert.|
+| 3.1  |Program wurde gestartet|Nach dem eintragen von Daten wird der [Prüfungen einschreiben] gedrückt.|Die eingegebenen Daten werden in den vorgesehenen Datenabnken gespeichert.|
+| 4.1  |Program wurde gestartet|[Liste anzeigen] wird gedrückt.|Die Liste geht in einem neuen Fenster auf|
+| 5.1  |Program wurde gestartet|[Liste bearbeiten] wird gedrückt|Die Liste geht in einen 'editieren' Modus|
+| 7.1  |Program wurde gestartet|Das Böxchen wird angeclickt und ein Häckchen erscheint.|Dieser Eintrag wird 'archiviert' (in eine andere Datenbank verschoben).|
 
 ### 1.4 Diagramme
 
@@ -56,7 +56,7 @@ Total:
 
 ## 3 Entscheiden
 
-✍️ Dokumentieren Sie hier Ihre Entscheidungen und Annahmen, die Sie im Bezug auf Ihre User Stories und die Implementierung getroffen haben.
+In diesem Projekt wollen wir ein Programm mit GUI erstellen, mit dem man Hausaufgaben und Prüfungen mit Datum einschreiben kann.
 
 ## 4 Realisieren
 
