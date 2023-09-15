@@ -1,12 +1,10 @@
 # Projekt-Dokumentation
 
-☝️ Alle Text-Stellen, welche mit einem ✍️ beginnen, können Sie löschen, sobald Sie die entsprechende Stellen ausgefüllt haben.
-
-✍️ Ihr Gruppenname und Ihre Nachnamen
+### Gruppe Potski: Pascal Oestrich, Timo Goedertier
 
 | Datum | Version | Zusammenfassung                                              |
 | ----- | ------- | ------------------------------------------------------------ |
-|       | 0.0.1   | ✍️ Jedes Mal, wenn Sie an dem Projekt arbeiten, fügen Sie hier eine neue Zeile ein und beschreiben in *einem* Satz, was Sie erreicht haben. |
+|15.09.2023| 0.0.1 | Das Projekt wurde in Visual Studio erstellt.                 |
 |       | ...     |                                                              |
 |       | 1.0.0   |                                                              |
 
@@ -14,14 +12,18 @@
 
 ### 1.1 Ihr Projekt
 
-✍️ Beschreiben Sie Ihr Projekt in einem griffigen Satz.
+Ein GUI um Hausaufgaben und Prüfungen, in einer Datenbank zu speichern und abzurufen.
 
 ### 1.2 User Stories
 
 | US-№ | Verbindlichkeit | Typ  | Beschreibung                       |
 | ---- | --------------- | ---- | ---------------------------------- |
-| 1    |                 |      | Als ein 🤷‍♂️ möchte ich 🤷‍♂️, damit 🤷‍♂️ |
-| ...  |                 |      |                                    |
+| 1    |Muss|Funktionalität| Als ein User möchte ich Hausaufgaben einschreiben können.|
+| 2    |Muss|Funktionalität| Als ein User möchte ich Prüfungen einschreiben können.|
+| 3    |Muss|Funktionalität| Als ein Developer möchte ich, dass die Daten in einer SQL-Datenbank gespeichert werden.|
+| 4    |Muss|Funktionalität| Als ein User möchte ich eine Liste haben, die mir alle Hausaufgaben und Prfüungen anzeigt.|
+| 5    |Kann|Funktionalität| Als ein User möchte ich die Liste/Einträge bearbeiten können.|
+| 6    |Muss|Qualität      | Als ein User möchte ich, dass das UI schön aussieht.|
 
 ✍️ Jede User Story hat eine ganzzahlige Nummer (1, 2, 3 etc.), eine Verbindlichkeit (Muss oder Kann?), und einen Typ (Funktional, Qualität, Rand). Die User Story selber hat folgende Form: *Als ein 🤷‍♂️ möchte ich 🤷‍♂️, damit 🤷‍♂️*.
 
