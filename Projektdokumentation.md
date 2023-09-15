@@ -22,8 +22,9 @@ Ein GUI um Hausaufgaben und Prüfungen, in einer Datenbank zu speichern und abzu
 | 2    |Muss|Funktionalität| Als ein User möchte ich Prüfungen einschreiben können.|
 | 3    |Muss|Funktionalität| Als ein Developer möchte ich, dass die Daten in einer SQL-Datenbank gespeichert werden.|
 | 4    |Muss|Funktionalität| Als ein User möchte ich eine Liste haben, die mir alle Hausaufgaben und Prfüungen anzeigt.|
-| 5    |Kann|Funktionalität| Als ein User möchte ich die Liste/Einträge bearbeiten können.|
+| 5    |Kann|Rand| Als ein User möchte ich die Liste/Einträge bearbeiten können.|
 | 6    |Muss|Qualität      | Als ein User möchte ich, dass das UI schön aussieht.|
+| 7    |Muss|Rand          | Als ein User möchte ich, dass abgeschlossene Hausaufgaben/Prüfungen archiviert werden können.|
 
 ✍️ Jede User Story hat eine ganzzahlige Nummer (1, 2, 3 etc.), eine Verbindlichkeit (Muss oder Kann?), und einen Typ (Funktional, Qualität, Rand). Die User Story selber hat folgende Form: *Als ein 🤷‍♂️ möchte ich 🤷‍♂️, damit 🤷‍♂️*.
 
