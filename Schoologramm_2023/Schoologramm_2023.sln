@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34024.191
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Schoologramm_2023", "Schoologramm_2023\Schoologramm_2023.csproj", "{532EA6CC-F281-449E-9269-9272B90325EC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{532EA6CC-F281-449E-9269-9272B90325EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{532EA6CC-F281-449E-9269-9272B90325EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{532EA6CC-F281-449E-9269-9272B90325EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{532EA6CC-F281-449E-9269-9272B90325EC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {693EC137-BDE2-4E9F-8908-9A304307ACB2}
+	EndGlobalSection
+EndGlobal
