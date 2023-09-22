@@ -97,4 +97,6 @@ In diesem Projekt wollen wir ein Programm mit GUI erstellen, mit dem man Hausauf
 
 ## 6 Auswerten
 
-✍️ Fügen Sie hier eine Verknüpfung zu Ihrem Lern-Bericht ein.
+Timo Goedertier (Portfolio): https://portfolio.bbbaden.ch/view/view.php?id=31808
+
+Pascal Oestrich (Portfolio): 
