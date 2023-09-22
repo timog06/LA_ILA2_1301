@@ -6,7 +6,7 @@
 | ----- | ------- | ------------------------------------------------------------ |
 |15.09.2023| 0.0.1 | Das Projekt wurde in Visual Studio erstellt.                |
 |15.09.2023| 0.0.2 | Das Programm hat die Eingabe Felder. (Felder funktionieren, werden aber noch nicht gespeichert) |
-|       | ...     |                                                              |
+|22.09.2023| 0.1.0 | Wir haben die Datenbanken hinzugefügt und mit dem Programm verbunden.|
 |       | 1.0.0   |                                                              |
 
 ## 1 Informieren
@@ -42,7 +42,6 @@ Ein GUI um Hausaufgaben und Prüfungen, in einer Datenbank zu speichern und abzu
 ### 1.4 Diagramme
 
 ![image](https://github.com/timog06/LA_ILA2_1301/assets/110891995/73af5bb4-1c30-4347-8533-a89e5238a9ce)
-
 
 ## 2 Planen
 
