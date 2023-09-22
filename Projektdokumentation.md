@@ -52,8 +52,8 @@ Ein GUI um Hausaufgaben und Prüfungen, in einer Datenbank zu speichern und abzu
 | 2.A  |29.09.2023|Pascal Oestrich|Das Programm kann Prüfungen einschreiben.| 30' |
 | 3.A  |27.10.2023|Timo Goedertier|Das Programm speichert Eingaben in Datenbanken.| 30' |
 | 4.A  |27.10.2023|Timo Goedertier|Das Programm hat eine Liste mit allen Eingaben| 15' |
-| 5.A  |03.11.2023|Timo Goedertier|Die Liste hat ein 'bearbeiten' Modus.| 30' |
-| 5.B  |03.11.2023|Timo Goedertier|Der User kann im 'bearbeiten' Mdus Eingaben Löschen.| 15' |
+| 5.A  |03.11.2023|Pascal Oestrich|Die Liste hat ein 'bearbeiten' Modus.| 30' |
+| 5.B  |03.11.2023|Pascal Oestrich|Der User kann im 'bearbeiten' Mdus Eingaben Löschen.| 15' |
 | 5.C  |03.11.2023|Timo Goedertier|Der User kann im 'bearbeiten' Mdus Eingaben verändern.| 30' |
 | 6.A  |03.11.2023|Pascal Oestrich|Das 'Main' GUI sieht gut aus.| 15' |
 | 6.B  |03.11.2023|Pascal Oestrich|Das 'Liste' GUI sieht gut aus.| 15' |
