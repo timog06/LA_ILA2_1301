@@ -7,8 +7,22 @@
         mc:Ignorable="d"
         Title="WindowListen" Height="450" Width="800">
     <Grid>
-        <Button Click="Button_Click" Content="Button" HorizontalAlignment="Left" Height="22" Margin="10,10,0,0" VerticalAlignment="Top" Width="88"/>
-        <StackPanel Name="checkBoxPanel" VerticalAlignment="Top"></StackPanel>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Click="Button_Click" Content="Button" HorizontalAlignment="Left" Height="22" Margin="10,10,0,0" VerticalAlignment="Top" Width="88" Grid.Column="1"/>
+            <StackPanel Name="checkBoxPanel" VerticalAlignment="Bottom" Grid.ColumnSpan="2" Height="156" HorizontalAlignment="Left" Width="400" Margin="0,0,0,217" RenderTransformOrigin="0.5,0.5">
+                <StackPanel.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleY="-1"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </StackPanel.RenderTransform>
+            </StackPanel>
+        </Grid>
     </Grid>
-
 </Window>
