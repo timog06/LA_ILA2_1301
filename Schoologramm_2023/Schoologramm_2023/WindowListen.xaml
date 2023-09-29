@@ -5,24 +5,40 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Schoologramm_2023"
         mc:Ignorable="d"
-        Title="WindowListen" Height="450" Width="800">
-    <Grid>
-        <Grid>
+        Title="WindowListen" Height="485" Width="681">
+    <Grid Margin="0,0,0,-6">
+        <Grid Margin="0,0,-50,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0*"/>
-                <ColumnDefinition/>
+                <ColumnDefinition Width="736*"/>
+                <ColumnDefinition Width="9*"/>
+                <ColumnDefinition Width="55*"/>
             </Grid.ColumnDefinitions>
             <Button Click="Button_Click" Content="Button" HorizontalAlignment="Left" Height="22" Margin="10,10,0,0" VerticalAlignment="Top" Width="88" Grid.Column="1"/>
-            <StackPanel Name="checkBoxPanel" VerticalAlignment="Bottom" Grid.ColumnSpan="2" Height="156" HorizontalAlignment="Left" Width="400" Margin="0,0,0,217" RenderTransformOrigin="0.5,0.5">
-                <StackPanel.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform ScaleY="-1"/>
-                        <SkewTransform/>
-                        <RotateTransform/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </StackPanel.RenderTransform>
-            </StackPanel>
+            <Label Content="Hausaufgaben" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="33" Margin="10,53,0,0" VerticalAlignment="Top" Width="131" Background="Gray" FontSize="18">
+                <Label.Style>
+                    <Style/>
+                </Label.Style>
+            </Label>
+            <Label Content="Prüfungen" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="29" Margin="410,57,0,0" VerticalAlignment="Top" Width="102" Background="Gray"/>
         </Grid>
+
+        <DataGrid Name="dataGrid" AutoGenerateColumns="False" Margin="10,86,417,213">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Datum" Binding="{Binding Datum}" />
+                <DataGridTextColumn Header="Auftrag" Binding="{Binding Auftrag}" />
+                <DataGridTextColumn Header="Fach" Binding="{Binding Fach}" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <DataGrid Name="dataGridPrüfung" AutoGenerateColumns="False" Margin="417,86,10,213">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Datum" Binding="{Binding Datum}" />
+                <DataGridTextColumn Header="Auftrag" Binding="{Binding Stoff}" />
+                <DataGridTextColumn Header="Fach" Binding="{Binding Fach}" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+
     </Grid>
 </Window>
