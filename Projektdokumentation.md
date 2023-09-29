@@ -28,6 +28,7 @@ Ein GUI um Hausaufgaben und Prüfungen, in einer Datenbank zu speichern und abzu
 | 6    |Muss|Qualität      | Als ein User möchte ich, dass das UI schön aussieht.|
 | 7    |Muss|Rand          | Als ein User möchte ich, dass abgeschlossene Hausaufgaben/Prüfungen archiviert werden können.|
 | 8    |Muss|Funktionalität| Als ein Developer möchte ich, dass das Program in WPF gemacht wird.|
+| 9    |Kann|Rand          | Als ein User möchte ich, wenn ich einen 'Stundenplan' Button drücke, das mein Stundenplan gezeigt wird.|
 
 ### 1.3 Testfälle
 
