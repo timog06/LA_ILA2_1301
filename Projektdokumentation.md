@@ -6,7 +6,8 @@
 | ----- | ------- | ------------------------------------------------------------ |
 |15.09.2023| 0.0.1 | Das Projekt wurde in Visual Studio erstellt.                |
 |15.09.2023| 0.0.2 | Das Programm hat die Eingabe Felder. (Felder funktionieren, werden aber noch nicht gespeichert) |
-|22.09.2023| 0.1.0 | Wir haben die Datenbanken hinzugefügt und mit dem Programm verbunden.|
+|22.09.2023| 0.0.3 | Wir haben am Programm weiter gearbeitet und es funkioniert jetzt alles ausser der Bearbeiten Modus und die Datenbank.|
+|29.09.2023| 0.1.0 | Wir haben die Datenbanken hinzugefügt und mit dem Programm verbunden.|
 |       | 1.0.0   |                                                              |
 
 ## 1 Informieren
