@@ -37,7 +37,7 @@ namespace Schoologramm_2023
             {
                 connection.Open();
 
-                string insertDataQuery = "INSERT INTO HausaufgabenDaten (Datum, Fach, Auftrag) VALUES (@fach, @auftrag, @fälligkeit)";
+                string insertDataQuery = "INSERT INTO HausaufgabenDaten (Datum, Fach, Auftrag) VALUES (@fälligkeit, @fach, @auftrag)";
 
                 using (SQLiteCommand command = new SQLiteCommand(insertDataQuery, connection))
                 {

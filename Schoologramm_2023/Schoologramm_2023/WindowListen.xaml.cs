@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Data.SQLite;
 
 namespace Schoologramm_2023
 {
@@ -40,12 +40,12 @@ namespace Schoologramm_2023
 
         public void GenerateDataCheckBox()
         {
-            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            using (SQLiteConnection connection = new SQLiteConnection($"Data Source={ConnectionString}; Version=3;"))
             {
-                conn.Open();
-                using (SqlCommand cmd = new SqlCommand("SELECT * FROM HausaufgabenDaten", conn))
+                connection.Open();
+                using (SQLiteCommand cmd = new SQLiteCommand("SELECT * FROM HausaufgabenDaten", connection))
                 {
-                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    using (SQLiteDataReader reader = cmd.ExecuteReader())
                     {
                         //ChatGPT-----------------------------------------------
                         while (reader.Read())
