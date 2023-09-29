@@ -5,28 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Schoologramm_2023"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="472" Width="810">
+
     <StackPanel Margin="20">
-        <Label Background ="Gray">Fach:</Label>
-        <TextBox x:Name="txtBox_Fach"/>
-        <Label Background ="Gray">Auftrag:</Label>
-        <TextBox x:Name="txtBox_Auftrag"/>
-        <Label Background ="Gray">Fälligkeit:</Label>
-        <TextBox x:Name="txtBox_Fälligkeit"/>
-        
-        <Button Click="Button_Click" Margin="10">Aufgaben einschreiben</Button>
 
-        <Label Background="Gray">Prüfungsfach:</Label>
-        <TextBox x:Name="txtBox_Prüfungsfach"/>
-        <Label Background="Gray">Prüfungsstoff:</Label>
-        <TextBox x:Name="txtBox_Prüfungsstoff"/>
-        <Label Background="Gray">Prüfungsdatum:</Label>
-        <TextBox x:Name="txtBox_Prüfungsdatum"/>
+        <Label x:Name="label_Fach" Background ="Gray">Fach:</Label>
+        <TextBox x:Name="txtBox_Fach" TextChanged="txtBox_Fach_TextChanged"/>
+        <Label x:Name="label_Auftrag" Background ="Gray">Auftrag:</Label>
+        <TextBox x:Name="txtBox_Auftrag" TextChanged="txtBox_Auftrag_TextChanged"/>
+        <Label x:Name="label_Fälligkeit" Background ="Gray">Fälligkeit:</Label>
+        <TextBox x:Name="txtBox_Fälligkeit" TextChanged="txtBox_Fälligkeit_TextChanged"/>
 
-        <Button Click="Button_Click_1" Margin="10">Prüfung einschreiben</Button>
+        <Button x:Name="aufgabe_Einschreiben" Click="Button_Click" Margin="10">Aufgaben einschreiben</Button>
 
-        <Frame Name="Page_List" HorizontalAlignment="Left" VerticalAlignment="Top" Width="500" Height="250"/>
-        <Button Click="Button_Click_2" Margin="5" Width="252">Eingeschriebene Objekte anzeigen</Button>
+        <Label x:Name="label_Prüfungsfach" Background="Gray">Prüfungsfach:</Label>
+        <TextBox x:Name="txtBox_Prüfungsfach" TextChanged="txtBox_Prüfungsfach_TextChanged"/>
+        <Label x:Name="label_Prüfungsstoff" Background="Gray">Prüfungsstoff:</Label>
+        <TextBox x:Name="txtBox_Prüfungsstoff" TextChanged="txtBox_Prüfungsstoff_TextChanged"/>
+        <Label x:Name="label_Prüfungsdatum" Background="Gray">Prüfungsdatum:</Label>
+        <TextBox x:Name="txtBox_Prüfungsdatum" TextChanged="txtBox_Prüfungsdatum_TextChanged"/>
+
+        <Button x:Name="prüfung_Einschreiben" Click="Button_Click_1" Margin="10">Prüfung einschreiben</Button>
+        <Button x:Name="open_Page" Click="Button_Click_2" Width="252" Content="Eingeschriebene Objekte anzeigen"/>
+        <Frame x:Name="Page_List" Width="412" Height="163"/>
 
     </StackPanel>
 </Window>
