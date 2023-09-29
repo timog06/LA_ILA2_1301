@@ -60,7 +60,7 @@ Ein GUI um Hausaufgaben und Prüfungen, in einer Datenbank zu speichern und abzu
 | 6.C  |03.11.2023|Pascal Oestrich|Der 'bearbeiten' Modus sieht gut aus.| 20' |
 | 7.A  |03.11.2023|Timo Goedertier|Eingaben haben ein Böxchen, welches man anclicken kann.| 60' |
 | 7.B  |03.11.2023|Timo Goedertier|Eingaben können durch das clicken der Böxchen archiviert werden.| 120' |
-| 8.A  |03.11.2023|Pascal Oestrich/Timo Goedertier|Das Programm wird mit WPF gemacht.|
+| 8.A  |03.11.2023|Pascal Oestrich/Timo Goedertier|Das Programm wird mit WPF gemacht.| - |
 
 ## 3 Entscheiden
 
@@ -70,10 +70,18 @@ In diesem Projekt wollen wir ein Programm mit GUI erstellen, mit dem man Hausauf
 
 | AP-№ | Datum | Zuständig | geplante Zeit | tatsächliche Zeit |
 | ---- | ----- | --------- | ------------- | ----------------- |
-| 1.A  |       |           |               |                   |
-| ...  |       |           |               |                   |
-
-✍️ Tragen Sie jedes Mal, wenn Sie ein Arbeitspaket abschließen, hier ein, wie lang Sie effektiv dafür hatten.
+| 1.A  |29.09.2023|Pascal Oestrich| 30' | 30' |
+| 2.A  |29.09.2023|Pascal Oestrich| 30' | 10' |
+| 3.A  |27.10.2023|Timo Goedertier| 30' | 45' |
+| 4.A  |27.10.2023|Pascal Oestrich| 15' | 20' |
+| 5.A  |03.11.2023|Pascal Oestrich| 30' |  |
+| 5.B  |03.11.2023|Pascal Oestrich| 15' |  |
+| 5.C  |03.11.2023|Timo Goedertier| 30' |  |
+| 6.A  |03.11.2023|Timo Goedertier| 15' | 10' |
+| 6.B  |03.11.2023|Timo Goedertier| 15' | 10' |
+| 6.C  |03.11.2023|Pascal Oestrich| 20' |  |
+| 7.A  |03.11.2023|Pascal Oestrich| 60' | 25' |
+| 7.B  |03.11.2023|Timo Goedertier| 120' | 30' |
 
 ## 5 Kontrollieren
 
