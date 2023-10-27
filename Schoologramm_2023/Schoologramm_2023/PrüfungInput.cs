@@ -8,7 +8,7 @@ namespace Schoologramm_2023
         private string _prüfungsstoff;
         private string _prüfungsdatum;
 
-        private string ConnectionString = new DatabaseManager(@".\Daten.sqlite")._databasePath;
+        private string ConnectionString = new DatabaseManager(@".\Daten.sqlite", @".\DatenArchive.sqlite")._databasePath;
 
         public bool Check { get; private set; }
 

@@ -22,7 +22,7 @@ namespace Schoologramm_2023
     /// </summary>
     public partial class WindowListen : Window
     {
-        private string ConnectionString = new DatabaseManager(@".\Daten.sqlite")._databasePath;
+        private string ConnectionString = new DatabaseManager(@".\Daten.sqlite", @".\DatenArchive.sqlite")._databasePath;
         private const string HausaufgabenDaten = "HausaufgabenDaten";
         private const string PrüfungsDaten = "PrüfungsDaten";
 
@@ -135,19 +135,19 @@ namespace Schoologramm_2023
 
         private void dataGridPrüfung_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
-            string currentDataConnection = new DatabaseManager(@".\Daten.sqlite")._databasePath;
-            string archiveDataConnection = new DatabaseManager(@".\DatenArchiv.sqlite")._databaseArchivePath;
 
-            using (SQLiteConnection currentConnection = new SQLiteConnection(currentDataConnection))
-            using (SQLiteConnection archiveConnection = new SQLiteConnection(archiveDataConnection))
+            string currentDataConnection = @".\Daten.sqlite";
+            string archiveDataConnection = @".\DatenArchive.sqlite";
+
+            using (SQLiteConnection currentConnection = new SQLiteConnection($"Data Source={currentDataConnection}; Version=3;"))
+            using (SQLiteConnection archiveConnection = new SQLiteConnection($"Data Source={archiveDataConnection}; Version=3;"))
             {
                 currentConnection.Open();
                 archiveConnection.Open();
 
                 //Chat GPT-----------------------------------------------------------------------------------------------------------------------------------------------------------
 
-                using (SQLiteCommand selectCommand = new SQLiteCommand("SELECT * FROM DeineTabelle", currentConnection))
+                using (SQLiteCommand selectCommand = new SQLiteCommand("SELECT * FROM HausaufgabenDaten, PrüfungsDaten", currentConnection))
                 using (SQLiteDataReader reader = selectCommand.ExecuteReader())
                 {
                     while (reader.Read())

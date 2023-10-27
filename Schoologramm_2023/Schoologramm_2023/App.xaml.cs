@@ -18,10 +18,9 @@ namespace Schoologramm_2023
             base.OnStartup(e);
             string databasePath = @".\Daten.sqlite";
             string databaseArchivePath = @".\DatenArchiv.sqlite";
-            var dbManager = new DatabaseManager(databasePath);
-            var dbArchiveManager = new DatabaseManager(databaseArchivePath);
+            var dbManager = new DatabaseManager(databasePath, databaseArchivePath);
             dbManager.InitializeDatabase();
-            dbArchiveManager.InitializeDatabaseArchvive();
+            dbManager.InitializeDatabaseArchvive();
         }
     }
 }

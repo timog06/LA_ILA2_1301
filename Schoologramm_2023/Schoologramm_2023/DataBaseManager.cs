@@ -67,11 +67,11 @@ namespace Schoologramm_2023
             }
         }
 
-        private void CreateDataBaseArchive(string databasePath)
+        private void CreateDataBaseArchive(string _databaseArchivePath)
         {
-            SQLiteConnection.CreateFile(databasePath);
+            SQLiteConnection.CreateFile(_databaseArchivePath);
 
-            using (SQLiteConnection connection = new SQLiteConnection($"Data Source={databasePath}; Version=3;"))
+            using (SQLiteConnection connection = new SQLiteConnection($"Data Source={_databaseArchivePath}; Version=3;"))
             {
                 connection.Open();
                 string createTableQuery = @"
