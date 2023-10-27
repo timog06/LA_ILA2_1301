@@ -13,5 +13,15 @@ namespace Schoologramm_2023
     /// </summary>
     public partial class App : Application
     {
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
+            string databasePath = @".\Daten.sqlite";
+            string databaseArchivePath = @".\DatenArchiv.sqlite";
+            var dbManager = new DatabaseManager(databasePath);
+            var dbArchiveManager = new DatabaseManager(databaseArchivePath);
+            dbManager.InitializeDatabase();
+            dbArchiveManager.InitializeDatabaseArchvive();
+        }
     }
 }

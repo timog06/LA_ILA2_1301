@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Data.SQLite;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace Schoologramm_2023
 {
@@ -21,8 +22,8 @@ namespace Schoologramm_2023
     /// </summary>
     public partial class WindowListen : Window
     {
-        private const string ConnectionString = "C:\\Users\\pasca\\OneDrive\\Dokumente\\GitHub\\LA_ILA2_1301\\Schoologramm_2023\\Schoologramm_2023\\_data\\Daten.sqlite";
-        private const string HausaufgabenData = "HausaufgabenDaten";
+        private string ConnectionString = new DatabaseManager(@".\Daten.sqlite")._databasePath;
+        private const string HausaufgabenDaten = "HausaufgabenDaten";
         private const string PrüfungsDaten = "PrüfungsDaten";
 
         private string tabelle;
@@ -100,14 +101,14 @@ namespace Schoologramm_2023
 
              }
         */
-        void GenerateDataCheckBox()
+        private void GenerateDataCheckBox()
         {
             for (int i = 0; i < 2; i++)
             {
                 using (SQLiteConnection connection = new SQLiteConnection($"Data Source={ConnectionString}; Version=3;"))
                 {
                     connection.Open();
-                    if(i == 0) { tabelle = HausaufgabenData; }
+                    if (i == 0) { tabelle = HausaufgabenDaten; }
                     else { tabelle = PrüfungsDaten; }
                     using (SQLiteDataAdapter adapter = new SQLiteDataAdapter($"SELECT * FROM {tabelle}", connection))
                     {
@@ -119,11 +120,11 @@ namespace Schoologramm_2023
                         DataColumn selectColumn = new DataColumn("IsSelected", typeof(bool)) { DefaultValue = false };
                         dt.Columns.Add(selectColumn);
 
-                        if(i == 0)
+                        if (i == 0)
                         {
                             dataGrid.ItemsSource = dt.DefaultView;
                         }
-                        else { dataGridPrüfung.ItemsSource = dt.DefaultView;}
+                        else { dataGridPrüfung.ItemsSource = dt.DefaultView; }
                         //------------------------------------------------------------------------------------------------
                     }
                 }
@@ -131,9 +132,62 @@ namespace Schoologramm_2023
 
 
         }
-        
 
+        private void dataGridPrüfung_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
+            string currentDataConnection = new DatabaseManager(@".\Daten.sqlite")._databasePath;
+            string archiveDataConnection = new DatabaseManager(@".\DatenArchiv.sqlite")._databaseArchivePath;
+
+            using (SQLiteConnection currentConnection = new SQLiteConnection(currentDataConnection))
+            using (SQLiteConnection archiveConnection = new SQLiteConnection(archiveDataConnection))
+            {
+                currentConnection.Open();
+                archiveConnection.Open();
+
+                //Chat GPT-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+                using (SQLiteCommand selectCommand = new SQLiteCommand("SELECT * FROM DeineTabelle", currentConnection))
+                using (SQLiteDataReader reader = selectCommand.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        bool isChecked = reader.GetBoolean(reader.GetOrdinal("IsChecked"));
+                        if (isChecked)
+                        {
+                            using (SQLiteCommand insertCommand = new SQLiteCommand("INSERT INTO ArchivTabelle (IsChecked, Data) VALUES (@IsChecked, @Data)", archiveConnection))
+                            {
+                                insertCommand.Parameters.AddWithValue("@IsChecked", isChecked);
+                                insertCommand.Parameters.AddWithValue("@Data", reader.GetString(reader.GetOrdinal("Data")));
+                                insertCommand.ExecuteNonQuery();
+                            }
+                        }
+                    }
+                }
+
+                using (SQLiteCommand deleteCommand = new SQLiteCommand("DELETE FROM DeineTabelle WHERE IsChecked = 1", currentConnection))
+                {
+                    deleteCommand.ExecuteNonQuery();
+                }
+                //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+            }
+        }
+        private void dataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void dataGridArchiv_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void dataGridPrüfungArchiv_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
+
 
 

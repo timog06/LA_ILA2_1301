@@ -8,7 +8,7 @@ namespace Schoologramm_2023
         private string _prüfungsstoff;
         private string _prüfungsdatum;
 
-        private const string DatenbankPath = "C:\\Users\\pasca\\OneDrive\\Dokumente\\GitHub\\LA_ILA2_1301\\Schoologramm_2023\\Schoologramm_2023\\_data\\Daten.sqlite";
+        private string ConnectionString = new DatabaseManager(@".\Daten.sqlite")._databasePath;
 
         public bool Check { get; private set; }
 
@@ -29,11 +29,11 @@ namespace Schoologramm_2023
 
         private void InsertIntoDatabase()
         {
-            using (SQLiteConnection connection = new SQLiteConnection($"Data Source={DatenbankPath}; Version=3;"))
+            using (SQLiteConnection connection = new SQLiteConnection($"Data Source={ConnectionString}; Version=3;"))
             {
                 connection.Open();
 
-                string insertDataQuery = "INSERT INTO PrüfungsDaten (Datum, Fach, Stoff) VALUES (@prüfungsfach, @prüfungsstoff, @prüfungsdatum)";
+                string insertDataQuery = "INSERT INTO PrüfungsDaten (Datum, Fach, Stoff) VALUES (@prüfungsdatum, @prüfungsfach, @prüfungsstoff)";
 
                 using (SQLiteCommand command = new SQLiteCommand(insertDataQuery, connection))
                 {

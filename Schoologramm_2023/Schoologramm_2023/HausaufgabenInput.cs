@@ -9,7 +9,7 @@ namespace Schoologramm_2023
         private string _auftrag;
         private string _fälligkeit;
 
-        private const string DatenbankPath = "C:\\Users\\pasca\\OneDrive\\Dokumente\\GitHub\\LA_ILA2_1301\\Schoologramm_2023\\Schoologramm_2023\\_data\\Daten.sqlite";
+        private string ConnectionString = new DatabaseManager(@".\Daten.sqlite")._databasePath;
 
         public bool Check { get; private set; }
 
@@ -33,7 +33,7 @@ namespace Schoologramm_2023
 
         private void InsertIntoDatabase()
         {
-            using (SQLiteConnection connection = new SQLiteConnection($"Data Source={DatenbankPath}; Version=3;"))
+            using (SQLiteConnection connection = new SQLiteConnection($"Data Source={ConnectionString}; Version=3;"))
             {
                 connection.Open();
 
