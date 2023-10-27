@@ -8,7 +8,7 @@
 |15.09.2023| 0.0.2 | Das Programm hat die Eingabe Felder. (Felder funktionieren, werden aber noch nicht gespeichert) |
 |22.09.2023| 0.0.3 | Wir haben am Programm weiter gearbeitet und es funkioniert jetzt alles ausser der Bearbeiten Modus und die Datenbank.|
 |29.09.2023| 0.1.0 | Wir haben die Datenbanken hinzugefügt und mit dem Programm verbunden.|
-|       | 1.0.0   |                                                              |
+|27.10.2023| 0.1.1 | Wir haben am Programm weiter gearbeitet und das archivieren funkioniert fast.|
 
 ## 1 Informieren
 
