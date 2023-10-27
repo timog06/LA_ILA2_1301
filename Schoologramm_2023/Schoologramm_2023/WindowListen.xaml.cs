@@ -136,41 +136,6 @@ namespace Schoologramm_2023
         private void dataGridPrüfung_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
-            string currentDataConnection = @".\Daten.sqlite";
-            string archiveDataConnection = @".\DatenArchive.sqlite";
-
-            using (SQLiteConnection currentConnection = new SQLiteConnection($"Data Source={currentDataConnection}; Version=3;"))
-            using (SQLiteConnection archiveConnection = new SQLiteConnection($"Data Source={archiveDataConnection}; Version=3;"))
-            {
-                currentConnection.Open();
-                archiveConnection.Open();
-
-                //Chat GPT-----------------------------------------------------------------------------------------------------------------------------------------------------------
-
-                using (SQLiteCommand selectCommand = new SQLiteCommand("SELECT * FROM HausaufgabenDaten, PrüfungsDaten", currentConnection))
-                using (SQLiteDataReader reader = selectCommand.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        bool isChecked = reader.GetBoolean(reader.GetOrdinal("IsChecked"));
-                        if (isChecked)
-                        {
-                            using (SQLiteCommand insertCommand = new SQLiteCommand("INSERT INTO ArchivTabelle (IsChecked, Data) VALUES (@IsChecked, @Data)", archiveConnection))
-                            {
-                                insertCommand.Parameters.AddWithValue("@IsChecked", isChecked);
-                                insertCommand.Parameters.AddWithValue("@Data", reader.GetString(reader.GetOrdinal("Data")));
-                                insertCommand.ExecuteNonQuery();
-                            }
-                        }
-                    }
-                }
-
-                using (SQLiteCommand deleteCommand = new SQLiteCommand("DELETE FROM DeineTabelle WHERE IsChecked = 1", currentConnection))
-                {
-                    deleteCommand.ExecuteNonQuery();
-                }
-                //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
-            }
         }
         private void dataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

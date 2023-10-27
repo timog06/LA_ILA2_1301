@@ -1215,19 +1215,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\timog\\.nuget\\packages\\": {}
+    "C:\\Users\\pasca\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\timog\\OneDrive\\Desktop\\GitHub\\LA_ILA2_1301\\Schoologramm_2023\\Schoologramm_2023\\Schoologramm_2023.csproj",
+      "projectUniqueName": "C:\\Users\\pasca\\OneDrive\\Dokumente\\GitHub\\LA_ILA2_1301\\Schoologramm_2023\\Schoologramm_2023\\Schoologramm_2023.csproj",
       "projectName": "Schoologramm_2023",
-      "projectPath": "C:\\Users\\timog\\OneDrive\\Desktop\\GitHub\\LA_ILA2_1301\\Schoologramm_2023\\Schoologramm_2023\\Schoologramm_2023.csproj",
-      "packagesPath": "C:\\Users\\timog\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\timog\\OneDrive\\Desktop\\GitHub\\LA_ILA2_1301\\Schoologramm_2023\\Schoologramm_2023\\obj\\",
+      "projectPath": "C:\\Users\\pasca\\OneDrive\\Dokumente\\GitHub\\LA_ILA2_1301\\Schoologramm_2023\\Schoologramm_2023\\Schoologramm_2023.csproj",
+      "packagesPath": "C:\\Users\\pasca\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\pasca\\OneDrive\\Dokumente\\GitHub\\LA_ILA2_1301\\Schoologramm_2023\\Schoologramm_2023\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\timog\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\pasca\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1277,7 +1277,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }

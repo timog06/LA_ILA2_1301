@@ -5,25 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Schoologramm_2023"
         mc:Ignorable="d"
-        Title="WindowListen" Height="485" Width="681">
+        Title="WindowListen" Height="485" Width="800" Background="lightgray">
     <Grid Margin="0,0,0,-6">
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0*"/>
-                <ColumnDefinition Width="736*"/>
-                <ColumnDefinition Width="9*"/>
-                <ColumnDefinition Width="55*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button Click="Button_Click" Content="Button" HorizontalAlignment="Left" Height="22" Margin="10,10,0,0" VerticalAlignment="Top" Width="88" Grid.Column="1"/>
-            <Label Content="Hausaufgaben" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="33" Margin="54,48,0,0" VerticalAlignment="Top" Width="131" Background="Gray" FontSize="15">
-                <Label.Style>
-                    <Style/>
-                </Label.Style>
-            </Label>
-            <Label Content="Prüfungen" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="29" Margin="473,48,0,0" VerticalAlignment="Top" Width="102" Background="Gray" FontSize="15"/>
+            <Button Click="Button_Click" Content="Back" HorizontalAlignment="Left" Height="22" Margin="351,10,0,0" VerticalAlignment="Top" Width="88" Grid.Column="3"/>
+
         </Grid>
-        
-        <DataGrid Name="dataGrid" AutoGenerateColumns="False" Margin="10,95,341,169" IsReadOnly="True" SelectionChanged="dataGrid_SelectionChanged">
+
+        <DataGrid Name="dataGrid" AutoGenerateColumns="False" Margin="10,47,405,217" SelectionChanged="dataGrid_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTemplateColumn Header="Auswählen">
                     <DataGridTemplateColumn.CellTemplate>
@@ -38,7 +33,7 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <DataGrid Name="dataGridPrüfung" AutoGenerateColumns="False" Margin="345,95,10,169" IsReadOnly="True" SelectionChanged="dataGridPrüfung_SelectionChanged">
+        <DataGrid Name="dataGridPrüfung" AutoGenerateColumns="False" Margin="400,47,10,217" SelectionChanged="dataGridPrüfung_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTemplateColumn Header="Auswählen">
                     <DataGridTemplateColumn.CellTemplate>
@@ -53,38 +48,35 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <Grid>
-            <DataGrid Name="dataGridArchiv" AutoGenerateColumns="False" Margin="10,313,341,10" IsReadOnly="True" SelectionChanged="dataGridArchiv_SelectionChanged">
-                <DataGrid.Columns>
-                    <DataGridTemplateColumn Header="Auswählen">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <CheckBox IsChecked="{Binding IsChecked, Mode=TwoWay}" />
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-                    <DataGridTextColumn Header="Datum" Binding="{Binding Datum}" />
-                    <DataGridTextColumn Header="Fach" Binding="{Binding Fach}" />
-                    <DataGridTextColumn Header="Auftrag" Binding="{Binding Auftrag}" />
-                </DataGrid.Columns>
-            </DataGrid>
+        <DataGrid Name="dataGridArchiv" AutoGenerateColumns="False" Margin="10,263,405,10" IsReadOnly="True" SelectionChanged="dataGridArchiv_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="Auswählen">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox IsChecked="{Binding IsChecked, Mode=TwoWay}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="Datum" Binding="{Binding Datum}" />
+                <DataGridTextColumn Header="Fach" Binding="{Binding Fach}" />
+                <DataGridTextColumn Header="Auftrag" Binding="{Binding Auftrag}" />
+            </DataGrid.Columns>
+        </DataGrid>
 
-            <DataGrid Name="dataGridPrüfungArchiv" AutoGenerateColumns="False" Margin="345,313,10,10" IsReadOnly="True" SelectionChanged="dataGridPrüfungArchiv_SelectionChanged">
-                <DataGrid.Columns>
-                    <DataGridTemplateColumn Header="Auswählen">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <CheckBox IsChecked="{Binding IsChecked, Mode=TwoWay}" />
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-                    <DataGridTextColumn Header="Datum" Binding="{Binding Datum}" />
-                    <DataGridTextColumn Header="Fach" Binding="{Binding Fach}" />
-                    <DataGridTextColumn Header="Auftrag" Binding="{Binding Stoff}" />
-                </DataGrid.Columns>
-            </DataGrid>
-
-        </Grid>
+        <DataGrid Name="dataGridPrüfungArchiv" AutoGenerateColumns="False" Margin="400,263,10,10" IsReadOnly="True" SelectionChanged="dataGridPrüfungArchiv_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="Auswählen">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox IsChecked="{Binding IsChecked, Mode=TwoWay}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="Datum" Binding="{Binding Datum}" />
+                <DataGridTextColumn Header="Fach" Binding="{Binding Fach}" />
+                <DataGridTextColumn Header="Auftrag" Binding="{Binding Stoff}" />
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 
 </Window>
