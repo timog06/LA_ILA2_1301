@@ -45,7 +45,7 @@ namespace Schoologramm_2023
                         Datum      TEXT,
                         Fach       TEXT,
                         Auftrag    TEXT,
-                        archiviert INTEGER NOT NULL DEFAULT (0)
+                        IsSelected INTEGER NOT NULL DEFAULT (0)
                     );
 
                     -- Tabelle: PrüfungsDaten
@@ -53,7 +53,7 @@ namespace Schoologramm_2023
                         Datum       TEXT,
                         Fach        TEXT,
                         Stoff       TEXT,
-                        archiviert INTEGER NOT NULL DEFAULT (0)
+                        IsSelected INTEGER NOT NULL DEFAULT (0)
                     );
 
                     COMMIT TRANSACTION;
@@ -83,7 +83,7 @@ namespace Schoologramm_2023
                         Datum      TEXT,
                         Fach       TEXT,
                         Auftrag    TEXT,
-                        archiviert INTEGER NOT NULL DEFAULT (0)
+                        IsSelected INTEGER NOT NULL DEFAULT (1)
                     );
 
                     -- Tabelle: PrüfungsDaten
@@ -91,7 +91,7 @@ namespace Schoologramm_2023
                         Datum       TEXT,
                         Fach        TEXT,
                         Stoff       TEXT,
-                        archiviert INTEGER NOT NULL DEFAULT (0)
+                        IsSelected INTEGER NOT NULL DEFAULT (1)
                     );
 
                     COMMIT TRANSACTION;

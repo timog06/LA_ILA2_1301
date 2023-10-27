@@ -9,7 +9,7 @@ namespace Schoologramm_2023
         private string _auftrag;
         private string _fälligkeit;
 
-        private string ConnectionString = new DatabaseManager(@".\Daten.sqlite", @".\DatenArchive.sqlite")._databasePath;
+        private string ConnectionString = new DatabaseManager(@".\Daten.sqlite", @".\DatenArchiv.sqlite")._databasePath;
 
         public bool Check { get; private set; }
 
