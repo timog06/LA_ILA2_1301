@@ -23,19 +23,22 @@
             <Label Content="Prüfungen" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="29" Margin="410,57,0,0" VerticalAlignment="Top" Width="102" Background="Gray"/>
         </Grid>
 
-        <DataGrid Name="dataGrid" AutoGenerateColumns="False" Margin="10,86,417,213">
+        <DataGrid Name="dataGrid" AutoGenerateColumns="False" Margin="10,86,417,213" IsReadOnly="True">
             <DataGrid.Columns>
+                <DataGridCheckBoxColumn Header="Auswählen" Binding="{Binding IsChecked}" Width="Auto"/>
                 <DataGridTextColumn Header="Datum" Binding="{Binding Datum}" />
-                <DataGridTextColumn Header="Auftrag" Binding="{Binding Auftrag}" />
                 <DataGridTextColumn Header="Fach" Binding="{Binding Fach}" />
+                <DataGridTextColumn Header="Auftrag" Binding="{Binding Auftrag}" />
             </DataGrid.Columns>
         </DataGrid>
 
-        <DataGrid Name="dataGridPrüfung" AutoGenerateColumns="False" Margin="417,86,10,213">
+        <DataGrid Name="dataGridPrüfung" AutoGenerateColumns="False" Margin="417,86,10,213" IsReadOnly="True">
             <DataGrid.Columns>
+                <DataGridCheckBoxColumn Header="Auswählen" Binding="{Binding IsChecked}" Width="Auto"/>
+
                 <DataGridTextColumn Header="Datum" Binding="{Binding Datum}" />
-                <DataGridTextColumn Header="Auftrag" Binding="{Binding Stoff}" />
                 <DataGridTextColumn Header="Fach" Binding="{Binding Fach}" />
+                <DataGridTextColumn Header="Auftrag" Binding="{Binding Stoff}" />
             </DataGrid.Columns>
         </DataGrid>
 
