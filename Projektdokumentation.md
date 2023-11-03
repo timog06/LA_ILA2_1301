@@ -43,7 +43,7 @@ Ein GUI um Hausaufgaben und Prüfungen, in einer Datenbank zu speichern und abzu
 
 ### 1.4 Diagramme
 
-![image](https://github.com/timog06/LA_ILA2_1301/assets/110891995/73af5bb4-1c30-4347-8533-a89e5238a9ce)
+![image](https://github.com/timog06/LA_ILA2_1301/assets/110891995/3cd4347c-7b68-4fcb-aebb-253f57eb2a94)
 
 ## 2 Planen
 
