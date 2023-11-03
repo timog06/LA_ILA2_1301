@@ -9,6 +9,7 @@
 |22.09.2023| 0.0.3 | Wir haben am Programm weiter gearbeitet und es funkioniert jetzt alles ausser der Bearbeiten Modus und die Datenbank.|
 |29.09.2023| 0.1.0 | Wir haben die Datenbanken hinzugefügt und mit dem Programm verbunden.|
 |27.10.2023| 0.1.1 | Wir haben am Programm weiter gearbeitet und das archivieren funkioniert fast.|
+|03.11.2023| 1.0.0 | Das Programm ist fertig programmiert und bereit für die Abgabe.|
 
 ## 1 Informieren
 
@@ -28,7 +29,6 @@ Ein GUI um Hausaufgaben und Prüfungen, in einer Datenbank zu speichern und abzu
 | 6    |Muss|Qualität      | Als ein User möchte ich, dass das UI schön aussieht.|
 | 7    |Muss|Rand          | Als ein User möchte ich, dass abgeschlossene Hausaufgaben/Prüfungen archiviert werden können.|
 | 8    |Muss|Funktionalität| Als ein Developer möchte ich, dass das Program in WPF gemacht wird.|
-| 9    |Kann|Rand          | Als ein User möchte ich, wenn ich einen 'Stundenplan' Button drücke, das mein Stundenplan gezeigt wird.|
 
 ### 1.3 Testfälle
 
@@ -38,7 +38,7 @@ Ein GUI um Hausaufgaben und Prüfungen, in einer Datenbank zu speichern und abzu
 | 2.1  |Program wurde gestartet|Nach dem eintragen von Daten wird der [Prüfungen einschreiben] gedrückt.|Die Daten werden für Prüfungen gespeichert.|
 | 3.1  |Program wurde gestartet|Daten werden eingeschrieben.|Die eingegebenen Daten werden in den vorgesehenen Datenbanken gespeichert.|
 | 4.1  |Program wurde gestartet|[Liste anzeigen] wird gedrückt.|Die Liste geht in einem neuen Fenster auf|
-| 5.1  |Program wurde gestartet|[Liste bearbeiten] wird gedrückt|Die Liste geht in einen 'editieren' Modus|
+| 5.1  |Program wurde gestartet|Man drückt auf einen Eintrag|Man kann den Eintrag verändern.|
 | 7.1  |Program wurde gestartet|Das Böxchen wird angeclickt und ein Häckchen erscheint.|Dieser Eintrag wird 'archiviert' (in eine andere Datenbank verschoben).|
 
 ### 1.4 Diagramme
@@ -53,12 +53,9 @@ Ein GUI um Hausaufgaben und Prüfungen, in einer Datenbank zu speichern und abzu
 | 2.A  |29.09.2023|Pascal Oestrich|Das Programm kann Prüfungen einschreiben.| 30' |
 | 3.A  |27.10.2023|Timo Goedertier|Das Programm speichert Eingaben in Datenbanken.| 30' |
 | 4.A  |27.10.2023|Timo Goedertier|Das Programm hat eine Liste mit allen Eingaben| 15' |
-| 5.A  |03.11.2023|Pascal Oestrich|Die Liste hat ein 'bearbeiten' Modus.| 30' |
-| 5.B  |03.11.2023|Pascal Oestrich|Der User kann im 'bearbeiten' Mdus Eingaben Löschen.| 15' |
-| 5.C  |03.11.2023|Timo Goedertier|Der User kann im 'bearbeiten' Mdus Eingaben verändern.| 30' |
+| 5.A  |03.11.2023|Pascal Oestrich|Die Liste kann bearbeitet werden.| 30' |
 | 6.A  |03.11.2023|Pascal Oestrich|Das 'Main' GUI sieht gut aus.| 15' |
 | 6.B  |03.11.2023|Pascal Oestrich|Das 'Liste' GUI sieht gut aus.| 15' |
-| 6.C  |03.11.2023|Pascal Oestrich|Der 'bearbeiten' Modus sieht gut aus.| 20' |
 | 7.A  |03.11.2023|Timo Goedertier|Eingaben haben ein Böxchen, welches man anclicken kann.| 60' |
 | 7.B  |03.11.2023|Timo Goedertier|Eingaben können durch das clicken der Böxchen archiviert werden.| 120' |
 | 8.A  |03.11.2023|Pascal Oestrich/Timo Goedertier|Das Programm wird mit WPF gemacht.| - |
@@ -75,12 +72,9 @@ In diesem Projekt wollen wir ein Programm mit GUI erstellen, mit dem man Hausauf
 | 2.A  |29.09.2023|Pascal Oestrich| 30' | 10' |
 | 3.A  |27.10.2023|Timo Goedertier| 30' | 45' |
 | 4.A  |27.10.2023|Pascal Oestrich| 15' | 20' |
-| 5.A  |03.11.2023|Pascal Oestrich| 30' |  |
-| 5.B  |03.11.2023|Pascal Oestrich| 15' |  |
-| 5.C  |03.11.2023|Timo Goedertier| 30' |  |
+| 5.A  |03.11.2023|Pascal Oestrich| 30' | 15' |
 | 6.A  |03.11.2023|Timo Goedertier| 15' | 10' |
 | 6.B  |03.11.2023|Timo Goedertier| 15' | 10' |
-| 6.C  |03.11.2023|Pascal Oestrich| 20' |  |
 | 7.A  |03.11.2023|Pascal Oestrich| 60' | 25' |
 | 7.B  |03.11.2023|Timo Goedertier| 120' | 30' |
 
@@ -94,15 +88,6 @@ In diesem Projekt wollen wir ein Programm mit GUI erstellen, mit dem man Hausauf
 | ...  |       |          |        |
 
 ✍️ Vergessen Sie nicht, ein Fazit hinzuzufügen, welches das Test-Ergebnis einordnet.
-
-### 5.2 Exploratives Testen
-
-| BR-№ | Ausgangslage | Eingabe | Erwartete Ausgabe | Tatsächliche Ausgabe |
-| ---- | ------------ | ------- | ----------------- | -------------------- |
-| I    |              |         |                   |                      |
-| ...  |              |         |                   |                      |
-
-✍️ Verwenden Sie römische Ziffern für Ihre Bug Reports, also I, II, III, IV etc.
 
 ## 6 Auswerten
 
