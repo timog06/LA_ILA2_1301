@@ -84,12 +84,16 @@ In diesem Projekt wollen wir ein Programm mit GUI erstellen, mit dem man Hausauf
 
 | TC-№ | Datum | Resultat | Tester |
 | ---- | ----- | -------- | ------ |
-| 1.1  |       |          |        |
-| ...  |       |          |        |
+| 1.1  |    03.11.2023   |    OK      |  Pascal Oestrich      |
+| 2.1  |   03.11.2023    |    OK      |     Pascal Oestrich     |
+| 3.1  |    03.11.2023   |    OK      |     Pascal Oestrich     |
+| 4.1  |   03.11.2023    |    OK      |    Pascal Oestrich      |
+| 5.1  |   03.11.2023    |    OK      |    Pascal Oestrich      |
+| 7.1  |   03.11.2023    |     OK     |    Pascal Oestrich      |
 
-✍️ Vergessen Sie nicht, ein Fazit hinzuzufügen, welches das Test-Ergebnis einordnet.
+Die Testfälle weisen keinen Fehler auf, alles läuft opitaml.
 
-## 6 Auswerten
+## Portfolio
 
 Timo Goedertier (Portfolio): https://portfolio.bbbaden.ch/view/view.php?id=31808
 
