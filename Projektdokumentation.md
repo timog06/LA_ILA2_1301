@@ -25,10 +25,9 @@ Ein GUI um Hausaufgaben und Prüfungen, in einer Datenbank zu speichern und abzu
 | 2    |Muss|Funktionalität| Als ein User möchte ich Prüfungen einschreiben können.|
 | 3    |Muss|Funktionalität| Als ein Developer möchte ich, dass die Daten in einer SQL-Datenbank gespeichert werden.|
 | 4    |Muss|Funktionalität| Als ein User möchte ich eine Liste haben, die mir alle Hausaufgaben und Prfüungen anzeigt.|
-| 5    |Kann|Rand          | Als ein User möchte ich die Liste/Einträge bearbeiten können.|
-| 6    |Muss|Qualität      | Als ein User möchte ich, dass das UI schön aussieht.|
-| 7    |Muss|Rand          | Als ein User möchte ich, dass abgeschlossene Hausaufgaben/Prüfungen archiviert werden können.|
-| 8    |Muss|Funktionalität| Als ein Developer möchte ich, dass das Program in WPF gemacht wird.|
+| 5    |Muss|Qualität      | Als ein User möchte ich, dass das UI schön aussieht.|
+| 6    |Muss|Rand          | Als ein User möchte ich, dass abgeschlossene Hausaufgaben/Prüfungen archiviert werden können.|
+| 7    |Muss|Funktionalität| Als ein Developer möchte ich, dass das Program in WPF gemacht wird.|
 
 ### 1.3 Testfälle
 
@@ -38,8 +37,7 @@ Ein GUI um Hausaufgaben und Prüfungen, in einer Datenbank zu speichern und abzu
 | 2.1  |Program wurde gestartet|Nach dem eintragen von Daten wird der [Prüfungen einschreiben] gedrückt.|Die Daten werden für Prüfungen gespeichert.|
 | 3.1  |Program wurde gestartet|Daten werden eingeschrieben.|Die eingegebenen Daten werden in den vorgesehenen Datenbanken gespeichert.|
 | 4.1  |Program wurde gestartet|[Liste anzeigen] wird gedrückt.|Die Liste geht in einem neuen Fenster auf|
-| 5.1  |Program wurde gestartet|Man drückt auf einen Eintrag|Man kann den Eintrag verändern.|
-| 7.1  |Program wurde gestartet|Das Böxchen wird angeclickt und ein Häckchen erscheint.|Dieser Eintrag wird 'archiviert' (in eine andere Datenbank verschoben).|
+| 5.1  |Program wurde gestartet|Das Böxchen wird angeclickt und ein Häckchen erscheint.|Dieser Eintrag wird 'archiviert' (in eine andere Datenbank verschoben).|
 
 ### 1.4 Diagramme
 
@@ -53,12 +51,11 @@ Ein GUI um Hausaufgaben und Prüfungen, in einer Datenbank zu speichern und abzu
 | 2.A  |29.09.2023|Pascal Oestrich|Das Programm kann Prüfungen einschreiben.| 30' |
 | 3.A  |27.10.2023|Timo Goedertier|Das Programm speichert Eingaben in Datenbanken.| 30' |
 | 4.A  |27.10.2023|Timo Goedertier|Das Programm hat eine Liste mit allen Eingaben| 15' |
-| 5.A  |03.11.2023|Pascal Oestrich|Die Liste kann bearbeitet werden.| 30' |
-| 6.A  |03.11.2023|Pascal Oestrich|Das 'Main' GUI sieht gut aus.| 15' |
-| 6.B  |03.11.2023|Pascal Oestrich|Das 'Liste' GUI sieht gut aus.| 15' |
-| 7.A  |03.11.2023|Timo Goedertier|Eingaben haben ein Böxchen, welches man anclicken kann.| 60' |
-| 7.B  |03.11.2023|Timo Goedertier|Eingaben können durch das clicken der Böxchen archiviert werden.| 120' |
-| 8.A  |03.11.2023|Pascal Oestrich/Timo Goedertier|Das Programm wird mit WPF gemacht.| - |
+| 5.A  |03.11.2023|Pascal Oestrich|Das 'Main' GUI sieht gut aus.| 15' |
+| 5.B  |03.11.2023|Pascal Oestrich|Das 'Liste' GUI sieht gut aus.| 15' |
+| 6.A  |03.11.2023|Timo Goedertier|Eingaben haben ein Böxchen, welches man anclicken kann.| 60' |
+| 6.B  |03.11.2023|Timo Goedertier|Eingaben können durch das clicken der Böxchen archiviert werden.| 120' |
+| 7.A  |03.11.2023|Pascal Oestrich/Timo Goedertier|Das Programm wird mit WPF gemacht.| - |
 
 ## 3 Entscheiden
 
@@ -72,11 +69,10 @@ In diesem Projekt wollen wir ein Programm mit GUI erstellen, mit dem man Hausauf
 | 2.A  |29.09.2023|Pascal Oestrich| 30' | 10' |
 | 3.A  |27.10.2023|Timo Goedertier| 30' | 45' |
 | 4.A  |27.10.2023|Pascal Oestrich| 15' | 20' |
-| 5.A  |03.11.2023|Pascal Oestrich| 30' | 15' |
-| 6.A  |03.11.2023|Timo Goedertier| 15' | 10' |
-| 6.B  |03.11.2023|Timo Goedertier| 15' | 10' |
-| 7.A  |03.11.2023|Pascal Oestrich| 60' | 25' |
-| 7.B  |03.11.2023|Timo Goedertier| 120' | 30' |
+| 5.A  |03.11.2023|Timo Goedertier| 15' | 10' |
+| 5.B  |03.11.2023|Timo Goedertier| 15' | 10' |
+| 6.A  |03.11.2023|Pascal Oestrich| 60' | 25' |
+| 6.B  |03.11.2023|Timo Goedertier| 120' | 30' |
 
 ## 5 Kontrollieren
 
@@ -88,8 +84,7 @@ In diesem Projekt wollen wir ein Programm mit GUI erstellen, mit dem man Hausauf
 | 2.1  |   03.11.2023    |    OK      |     Pascal Oestrich     |
 | 3.1  |    03.11.2023   |    OK      |     Pascal Oestrich     |
 | 4.1  |   03.11.2023    |    OK      |    Pascal Oestrich      |
-| 5.1  |   03.11.2023    |    OK      |    Pascal Oestrich      |
-| 7.1  |   03.11.2023    |     OK     |    Pascal Oestrich      |
+| 6.1  |   03.11.2023    |     OK     |    Pascal Oestrich      |
 
 Die Testfälle weisen keinen Fehler auf, alles läuft opitaml.
 
