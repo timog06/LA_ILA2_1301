@@ -216,9 +216,8 @@ namespace Schoologramm_2023
                     archiveConnection.Open();
 
                     DataRowView selectedRow = (DataRowView)dataGridPrüfungArchiv.SelectedItem;
-                    int selectedItemId = Convert.ToInt32(selectedRow["ID"]); // Assuming you have an 'ID' column in your PrüfungsDaten table
+                    int selectedItemId = Convert.ToInt32(selectedRow["ID"]);
 
-                    // Move the selected item from the archive back to the current data
                     using (SQLiteCommand insertCommand = new SQLiteCommand("INSERT INTO PrüfungsDaten (Datum, Fach, Stoff) VALUES (@Datum, @Fach, @Stoff)", currentConnection))
                     {
                         insertCommand.Parameters.AddWithValue("@Datum", selectedRow["Datum"]);
