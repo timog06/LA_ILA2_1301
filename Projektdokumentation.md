@@ -90,6 +90,6 @@ Die Testfälle weisen keinen Fehler auf, alles läuft opitaml.
 
 ## Portfolio
 
-Timo Goedertier (Portfolio): https://portfolio.bbbaden.ch/view/view.php?id=31808
+Timo Goedertier (Portfolio): https://portfolio.bbbaden.ch/user/t-goedertier-inf22/school-o-gramm-in-c-mit-wpf
 
 Pascal Oestrich (Portfolio): 
