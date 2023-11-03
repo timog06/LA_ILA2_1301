@@ -45,7 +45,7 @@ namespace Schoologramm_2023
                         Datum      TEXT,
                         Fach       TEXT,
                         Auftrag    TEXT,
-                        IsSelected INTEGER NOT NULL DEFAULT (0)
+                        ID         INTEGER PRIMARY KEY AUTOINCREMENT
                     );
 
                     -- Tabelle: PrüfungsDaten
@@ -53,7 +53,7 @@ namespace Schoologramm_2023
                         Datum       TEXT,
                         Fach        TEXT,
                         Stoff       TEXT,
-                        IsSelected INTEGER NOT NULL DEFAULT (0)
+                        ID          INTEGER PRIMARY KEY AUTOINCREMENT
                     );
 
                     COMMIT TRANSACTION;
@@ -83,7 +83,7 @@ namespace Schoologramm_2023
                         Datum      TEXT,
                         Fach       TEXT,
                         Auftrag    TEXT,
-                        IsSelected INTEGER NOT NULL DEFAULT (1)
+                        ID          INTEGER PRIMARY KEY AUTOINCREMENT
                     );
 
                     -- Tabelle: PrüfungsDaten
@@ -91,7 +91,7 @@ namespace Schoologramm_2023
                         Datum       TEXT,
                         Fach        TEXT,
                         Stoff       TEXT,
-                        IsSelected INTEGER NOT NULL DEFAULT (1)
+                        ID          INTEGER PRIMARY KEY AUTOINCREMENT
                     );
 
                     COMMIT TRANSACTION;

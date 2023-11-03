@@ -1,19 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data;
+using System.Data.SQLite;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using System.Data.SQLite;
-using System.Data;
-using System.Data.SqlClient;
 
 namespace Schoologramm_2023
 {
@@ -51,64 +40,9 @@ namespace Schoologramm_2023
             //From Chat GPT---------------------------
         }
 
-        /* public void GenerateDataCheckBox()
-         {
-             using (SQLiteConnection connection = new SQLiteConnection($"Data Source={ConnectionString}; Version=3;"))
-             {
-                 connection.Open();
-                 using (SQLiteCommand cmd = new SQLiteCommand("SELECT * FROM HausaufgabenDaten", connection))
-                 {
-                     using (SQLiteDataReader Attribute = cmd.ExecuteReader())
-                     {
-                         //ChatGPT-----------------------------------------------
-                         while (Attribute.Read())
-                         {
-                             CheckBox checkBox = new CheckBox
-                             {
-                                 Content = Attribute["Datum"].ToString() + ", " +
-                                           Attribute["Fach"].ToString() + ", " +
-                                           Attribute["Auftrag"].ToString(),
-
-                                 Margin = new Thickness(5)
-                             };
-
-                             checkBoxPanel.Children.Add(checkBox);
-                         }
-                         //--------------------------------------------------------
-                     }
-                 }
-             }
-
-             using (SQLiteConnection connection = new SQLiteConnection($"Data Source={ConnectionString}; Version=3;"))
-             {
-                 connection.Open();
-                 using (SQLiteCommand cmd = new SQLiteCommand("SELECT * FROM PrüfungsDaten", connection))
-                 {
-                     using (SQLiteDataReader Attribute = cmd.ExecuteReader())
-                     {
-                         //ChatGPT-----------------------------------------------
-                         while (Attribute.Read())
-                         {
-                             CheckBox checkBox = new CheckBox
-                             {
-                                 Content = Attribute["Datum"].ToString() + ", " +
-                                           Attribute["Fach"].ToString() + ", " +
-                                           Attribute["Stoff"].ToString(),
-
-                                 Margin = new Thickness(5)
-                             };
-
-                             checkBoxPanelPrüfung.Children.Add(checkBox);
-                         }
-                         //--------------------------------------------------------
-                     }
-                 }
-
-             }
-        */
         private void GenerateDataCheckBox()
         {
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 2; i++)
             {
                 using (SQLiteConnection connection = new SQLiteConnection($"Data Source={ConnectionString}; Version=3;"))
                 {
@@ -129,6 +63,7 @@ namespace Schoologramm_2023
                         {
                             dataGridPrüfung.ItemsSource = dt.DefaultView;
                         }
+
                     }
 
                 }
@@ -136,26 +71,26 @@ namespace Schoologramm_2023
         }
         private void GenerateDataArchiveCheckBox()
         {
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 2; i++)
             {
-                using (SQLiteConnection connection = new SQLiteConnection($"Data Source={ConnectionArchiveString}; Version=3;"))
+                using (SQLiteConnection archiveconnection = new SQLiteConnection($"Data Source={ConnectionArchiveString}; Version=3;"))
                 {
-                    connection.Open();
+                    archiveconnection.Open();
                     if (i == 0) { tabelle = HausaufgabenDaten; }
                     else { tabelle = PrüfungsDaten; }
 
-                    using (SQLiteDataAdapter adapter = new SQLiteDataAdapter($"SELECT * FROM {tabelle}", connection))
+                    using (SQLiteDataAdapter adapter = new SQLiteDataAdapter($"SELECT * FROM {tabelle}", archiveconnection))
                     {
                         DataTable dt = new DataTable();
                         adapter.Fill(dt);
 
                         if (i == 0)
                         {
-                            dataGrid.ItemsSource = dt.DefaultView;
+                            dataGridArchiv.ItemsSource = dt.DefaultView;
                         }
                         else
                         {
-                            dataGridPrüfung.ItemsSource = dt.DefaultView;
+                            dataGridPrüfungArchiv.ItemsSource = dt.DefaultView;
                         }
                     }
 
@@ -165,45 +100,33 @@ namespace Schoologramm_2023
 
         private void dataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            string currentDataConnection = @".\Daten.sqlite";
-            string archiveDataConnection = @".\DatenArchiv.sqlite";
-
-            using (SQLiteConnection currentConnection = new SQLiteConnection($"Data Source={currentDataConnection}; Version=3;"))
-            using (SQLiteConnection archiveConnection = new SQLiteConnection($"Data Source={archiveDataConnection}; Version=3;"))
+            if (dataGrid.SelectedItem != null)
             {
-                currentConnection.Open();
-                archiveConnection.Open();
+                string currentDataConnection = @".\Daten.sqlite";
+                string archiveDataConnection = @".\DatenArchiv.sqlite";
 
-                DataTable selectedRows = ((DataView)dataGrid.ItemsSource).Table;
-
-                using (SQLiteTransaction transaction = currentConnection.BeginTransaction())
+                using (SQLiteConnection currentConnection = new SQLiteConnection($"Data Source={currentDataConnection}; Version=3;"))
+                using (SQLiteConnection archiveConnection = new SQLiteConnection($"Data Source={archiveDataConnection}; Version=3;"))
                 {
-                    using (SQLiteCommand updateCommand = new SQLiteCommand("UPDATE HausaufgabenDaten SET IsSelected = 1 WHERE IsSelected = 0", currentConnection, transaction))
+                    currentConnection.Open();
+                    archiveConnection.Open();
+
+                    DataRowView selectedRow = (DataRowView)dataGrid.SelectedItem;
+                    int selectedItemId = Convert.ToInt32(selectedRow["ID"]);
+
+                    using (SQLiteCommand insertCommand = new SQLiteCommand("INSERT INTO HausaufgabenDaten (Datum, Fach, Auftrag) VALUES (@Datum, @Fach, @Auftrag)", archiveConnection))
                     {
-                        updateCommand.ExecuteNonQuery();
+                        insertCommand.Parameters.AddWithValue("@Datum", selectedRow["Datum"]);
+                        insertCommand.Parameters.AddWithValue("@Fach", selectedRow["Fach"]);
+                        insertCommand.Parameters.AddWithValue("@Auftrag", selectedRow["Auftrag"]);
+                        insertCommand.ExecuteNonQuery();
                     }
 
-                    using (SQLiteCommand selectCommand = new SQLiteCommand("SELECT * FROM HausaufgabenDaten WHERE IsSelected = 1", currentConnection, transaction))
-                    using (SQLiteDataReader reader = selectCommand.ExecuteReader())
+                    using (SQLiteCommand deleteCommand = new SQLiteCommand("DELETE FROM HausaufgabenDaten WHERE ID = @ID", currentConnection))
                     {
-                        while (reader.Read())
-                        {
-                            using (SQLiteCommand insertCommand = new SQLiteCommand("INSERT INTO HausaufgabenDaten (Datum, Fach, Auftrag, IsSelected) VALUES (@Datum, @Fach, @Auftrag, 0)", archiveConnection))
-                            {
-                                insertCommand.Parameters.AddWithValue("@Datum", reader.GetString(reader.GetOrdinal("Datum")));
-                                insertCommand.Parameters.AddWithValue("@Fach", reader.GetString(reader.GetOrdinal("Fach")));
-                                insertCommand.Parameters.AddWithValue("@Auftrag", reader.GetString(reader.GetOrdinal("Auftrag")));
-                                insertCommand.ExecuteNonQuery();
-                            }
-                        }
-                    }
-
-                    using (SQLiteCommand deleteCommand = new SQLiteCommand("DELETE FROM HausaufgabenDaten WHERE IsSelected = 1", currentConnection, transaction))
-                    {
+                        deleteCommand.Parameters.AddWithValue("@ID", selectedItemId);
                         deleteCommand.ExecuteNonQuery();
                     }
-
-                    transaction.Commit();
                 }
             }
         }
@@ -211,145 +134,106 @@ namespace Schoologramm_2023
 
         private void dataGridArchiv_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            string currentDataConnection = @".\Daten.sqlite";
-            string archiveDataConnection = @".\DatenArchiv.sqlite";
-
-            using (SQLiteConnection currentConnection = new SQLiteConnection($"Data Source={currentDataConnection}; Version=3;"))
-            using (SQLiteConnection archiveConnection = new SQLiteConnection($"Data Source={archiveDataConnection}; Version=3;"))
+            if (dataGridArchiv.SelectedItem != null)
             {
-                currentConnection.Open();
-                archiveConnection.Open();
+                string currentDataConnection = @".\Daten.sqlite";
+                string archiveDataConnection = @".\DatenArchiv.sqlite";
 
-                DataTable selectedRows = ((DataView)dataGridArchiv.ItemsSource).Table;
-
-                using (SQLiteTransaction transaction = archiveConnection.BeginTransaction())
+                using (SQLiteConnection currentConnection = new SQLiteConnection($"Data Source={currentDataConnection}; Version=3;"))
+                using (SQLiteConnection archiveConnection = new SQLiteConnection($"Data Source={archiveDataConnection}; Version=3;"))
                 {
-                    using (SQLiteCommand updateCommand = new SQLiteCommand("UPDATE HausaufgabenDaten SET IsSelected = 0 WHERE IsSelected = 1", archiveConnection, transaction))
+                    currentConnection.Open();
+                    archiveConnection.Open();
+
+                    DataRowView selectedRow = (DataRowView)dataGridArchiv.SelectedItem;
+                    int selectedItemId = Convert.ToInt32(selectedRow["ID"]);
+
+                    using (SQLiteCommand insertCommand = new SQLiteCommand("INSERT INTO HausaufgabenDaten (Datum, Fach, Auftrag) VALUES (@Datum, @Fach, @Auftrag)", currentConnection))
                     {
-                        updateCommand.ExecuteNonQuery();
+                        insertCommand.Parameters.AddWithValue("@Datum", selectedRow["Datum"]);
+                        insertCommand.Parameters.AddWithValue("@Fach", selectedRow["Fach"]);
+                        insertCommand.Parameters.AddWithValue("@Auftrag", selectedRow["Auftrag"]);
+                        insertCommand.ExecuteNonQuery();
                     }
 
-                    using (SQLiteCommand selectCommand = new SQLiteCommand("SELECT * FROM HausaufgabenDaten WHERE IsSelected = 0", archiveConnection, transaction))
-                    using (SQLiteDataReader reader = selectCommand.ExecuteReader())
+                    using (SQLiteCommand deleteCommand = new SQLiteCommand("DELETE FROM HausaufgabenDaten WHERE ID = @ID", archiveConnection))
                     {
-                        while (reader.Read())
-                        {
-                            using (SQLiteCommand insertCommand = new SQLiteCommand("INSERT INTO HausaufgabenDaten (IsSelected, Datum, Fach, Auftrag) VALUES (0, @Datum, @Fach, @Auftrag)", currentConnection, transaction))
-                            {
-                                insertCommand.Parameters.AddWithValue("@Datum", reader.GetString(reader.GetOrdinal("Datum")));
-                                insertCommand.Parameters.AddWithValue("@Fach", reader.GetString(reader.GetOrdinal("Fach")));
-                                insertCommand.Parameters.AddWithValue("@Auftrag", reader.GetString(reader.GetOrdinal("Auftrag")));
-                                insertCommand.ExecuteNonQuery();
-                            }
-                        }
-                    }
-
-                    using (SQLiteCommand deleteCommand = new SQLiteCommand("DELETE FROM HausaufgabenDaten WHERE IsSelected = 0", archiveConnection, transaction))
-                    {
+                        deleteCommand.Parameters.AddWithValue("@ID", selectedItemId);
                         deleteCommand.ExecuteNonQuery();
                     }
-
-                    transaction.Commit();
                 }
             }
-
         }
+
 
 
         private void dataGridPrüfung_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            string currentDataConnection = @".\Daten.sqlite";
-            string archiveDataConnection = @".\DatenArchiv.sqlite";
-
-            using (SQLiteConnection currentConnection = new SQLiteConnection($"Data Source={currentDataConnection}; Version=3;"))
-            using (SQLiteConnection archiveConnection = new SQLiteConnection($"Data Source={archiveDataConnection}; Version=3;"))
+            if (dataGridPrüfung.SelectedItem != null)
             {
-                currentConnection.Open();
-                archiveConnection.Open();
+                string currentDataConnection = @".\Daten.sqlite";
+                string archiveDataConnection = @".\DatenArchiv.sqlite";
 
-                DataTable selectedRows = ((DataView)dataGrid.ItemsSource).Table;
-
-                using (SQLiteTransaction transaction = currentConnection.BeginTransaction())
+                using (SQLiteConnection currentConnection = new SQLiteConnection($"Data Source={currentDataConnection}; Version=3;"))
+                using (SQLiteConnection archiveConnection = new SQLiteConnection($"Data Source={archiveDataConnection}; Version=3;"))
                 {
-                    using (SQLiteCommand updateCommand = new SQLiteCommand("UPDATE PrüfungsDaten SET IsSelected = 1 WHERE IsSelected = 0", currentConnection, transaction))
+                    currentConnection.Open();
+                    archiveConnection.Open();
+
+                    DataRowView selectedRow = (DataRowView)dataGridPrüfung.SelectedItem;
+                    int selectedItemId = Convert.ToInt32(selectedRow["ID"]);
+
+                    using (SQLiteCommand insertCommand = new SQLiteCommand("INSERT INTO PrüfungsDaten (Datum, Fach, Stoff) VALUES (@Datum, @Fach, @Stoff)", archiveConnection))
                     {
-                        updateCommand.ExecuteNonQuery();
+                        insertCommand.Parameters.AddWithValue("@Datum", selectedRow["Datum"]);
+                        insertCommand.Parameters.AddWithValue("@Fach", selectedRow["Fach"]);
+                        insertCommand.Parameters.AddWithValue("@Stoff", selectedRow["Stoff"]);
+                        insertCommand.ExecuteNonQuery();
                     }
 
-                    using (SQLiteCommand selectCommand = new SQLiteCommand("SELECT * FROM PrüfungsDaten WHERE IsSelected = 1", currentConnection, transaction))
-                    using (SQLiteDataReader reader = selectCommand.ExecuteReader())
+                    using (SQLiteCommand deleteCommand = new SQLiteCommand("DELETE FROM PrüfungsDaten WHERE ID = @ID", currentConnection))
                     {
-                        while (reader.Read())
-                        {
-                            using (SQLiteCommand insertCommand = new SQLiteCommand("INSERT INTO PrüfungsDaten (Datum, Fach, Stoff, IsSelected) VALUES (@Datum, @Fach, @Stoff, 0)", archiveConnection))
-                            {
-                                insertCommand.Parameters.AddWithValue("@Datum", reader.GetString(reader.GetOrdinal("Datum")));
-                                insertCommand.Parameters.AddWithValue("@Fach", reader.GetString(reader.GetOrdinal("Fach")));
-                                insertCommand.Parameters.AddWithValue("@Stoff", reader.GetString(reader.GetOrdinal("Stoff")));
-                                insertCommand.ExecuteNonQuery();
-                            }
-                        }
-                    }
-
-                    using (SQLiteCommand deleteCommand = new SQLiteCommand("DELETE FROM PrüfungsDaten WHERE IsSelected = 1", currentConnection, transaction))
-                    {
+                        deleteCommand.Parameters.AddWithValue("@ID", selectedItemId);
                         deleteCommand.ExecuteNonQuery();
                     }
-
-                    transaction.Commit();
                 }
             }
         }
+
 
 
         private void dataGridPrüfungArchiv_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            string currentDataConnection = @".\Daten.sqlite";
-            string archiveDataConnection = @".\DatenArchiv.sqlite";
-
-            using (SQLiteConnection currentConnection = new SQLiteConnection($"Data Source={currentDataConnection}; Version=3;"))
-            using (SQLiteConnection archiveConnection = new SQLiteConnection($"Data Source={archiveDataConnection}; Version=3;"))
+            if (dataGridPrüfungArchiv.SelectedItem != null)
             {
-                currentConnection.Open();
-                archiveConnection.Open();
+                string currentDataConnection = @".\Daten.sqlite";
+                string archiveDataConnection = @".\DatenArchiv.sqlite";
 
-                DataTable selectedRows = ((DataView)dataGridArchiv.ItemsSource).Table;
-
-                using (SQLiteTransaction transaction = archiveConnection.BeginTransaction())
+                using (SQLiteConnection currentConnection = new SQLiteConnection($"Data Source={currentDataConnection}; Version=3;"))
+                using (SQLiteConnection archiveConnection = new SQLiteConnection($"Data Source={archiveDataConnection}; Version=3;"))
                 {
-                    using (SQLiteCommand updateCommand = new SQLiteCommand("UPDATE PrüfungsDaten SET IsSelected = 0 WHERE IsSelected = 1", archiveConnection, transaction))
+                    currentConnection.Open();
+                    archiveConnection.Open();
+
+                    DataRowView selectedRow = (DataRowView)dataGridPrüfungArchiv.SelectedItem;
+                    int selectedItemId = Convert.ToInt32(selectedRow["ID"]); // Assuming you have an 'ID' column in your PrüfungsDaten table
+
+                    // Move the selected item from the archive back to the current data
+                    using (SQLiteCommand insertCommand = new SQLiteCommand("INSERT INTO PrüfungsDaten (Datum, Fach, Stoff) VALUES (@Datum, @Fach, @Stoff)", currentConnection))
                     {
-                        updateCommand.ExecuteNonQuery();
+                        insertCommand.Parameters.AddWithValue("@Datum", selectedRow["Datum"]);
+                        insertCommand.Parameters.AddWithValue("@Fach", selectedRow["Fach"]);
+                        insertCommand.Parameters.AddWithValue("@Stoff", selectedRow["Stoff"]);
+                        insertCommand.ExecuteNonQuery();
                     }
 
-                    using (SQLiteCommand selectCommand = new SQLiteCommand("SELECT * FROM PrüfungsDaten WHERE IsSelected = 0", archiveConnection, transaction))
-                    using (SQLiteDataReader reader = selectCommand.ExecuteReader())
+                    using (SQLiteCommand deleteCommand = new SQLiteCommand("DELETE FROM PrüfungsDaten WHERE ID = @ID", archiveConnection))
                     {
-                        while (reader.Read())
-                        {
-                            using (SQLiteCommand insertCommand = new SQLiteCommand("INSERT INTO PrüfungsDaten (IsSelected, Datum, Fach, Stoff) VALUES (0, @Datum, @Fach, @Stoff)", currentConnection, transaction))
-                            {
-                                insertCommand.Parameters.AddWithValue("@Datum", reader.GetString(reader.GetOrdinal("Datum")));
-                                insertCommand.Parameters.AddWithValue("@Fach", reader.GetString(reader.GetOrdinal("Fach")));
-                                insertCommand.Parameters.AddWithValue("@Stoff", reader.GetString(reader.GetOrdinal("Stoff")));
-                                insertCommand.ExecuteNonQuery();
-                            }
-                        }
-                    }
-
-                    using (SQLiteCommand deleteCommand = new SQLiteCommand("DELETE FROM PrüfungsDaten WHERE IsSelected = 0", archiveConnection, transaction))
-                    {
+                        deleteCommand.Parameters.AddWithValue("@ID", selectedItemId);
                         deleteCommand.ExecuteNonQuery();
                     }
-
-                    transaction.Commit();
                 }
             }
-
         }
-
     }
 }
-
-
-
